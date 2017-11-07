@@ -1,8 +1,6 @@
 <p align="center">
-    <img src="Artwork/sample.png" width="890" alt="Tabman"/>
+    <img src="Artwork/sample.png" width="390" alt="Tabman"/>
 </p>
-
-====
 
 <p align="center">
     <img src="Artwork/logo.png" width="890" alt="Tabman"/>
