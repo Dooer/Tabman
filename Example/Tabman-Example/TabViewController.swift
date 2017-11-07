@@ -35,7 +35,11 @@ class TabViewController: TabmanViewController, PageboyViewControllerDataSource {
         super.viewDidLoad()
         addBarButtons()
         view.sendSubview(toBack: self.gradientView)
-                
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .automatic
+        } else {
+            // Fallback on earlier versions
+        }
         dataSource = self
         
         // bar customisation
@@ -102,7 +106,22 @@ class TabViewController: TabmanViewController, PageboyViewControllerDataSource {
         for index in 0 ..< count {
             let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
             viewController.index = index + 1
-            barItems.append(Item(title: "Page No. \(index + 1)"))
+            switch index {
+            case 0:
+                barItems.append(Item(title: "Alla"))
+                break
+            case 1:
+                barItems.append(Item(title: "Osorterade"))
+                break
+            case 2:
+                barItems.append(Item(title: "Utgifter"))
+                break
+            case 3:
+                barItems.append(Item(title: "Utlägg"))
+                break
+            default:
+                barItems.append(Item(title: "Page No. \(index + 1)"))
+            }
             
             viewControllers.append(viewController)
         }

@@ -15,24 +15,27 @@ class PresetAppearanceConfigs: Any {
         let appearance = currentAppearance ?? TabmanBar.Appearance.defaultAppearance
         appearance.indicator.bounces = false
         appearance.indicator.compresses = false
-        appearance.style.background = .blur(style: .dark)
+        appearance.style.background = .solid(color: UIColor.white)
+        appearance.text.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        appearance.state.selectedColor = UIColor(displayP3Red: 72/255, green: 137/255, blue: 250/255, alpha: 1)
+        appearance.indicator.color = UIColor(displayP3Red: 72/255, green: 137/255, blue: 250/255, alpha: 1)
+        appearance.state.color = UIColor(displayP3Red: 95/255, green: 95/255, blue: 105/255, alpha: 1).withAlphaComponent(1)
+        appearance.style.bottomSeparatorColor = UIColor.lightGray
         
         switch style {
 
         case .bar:
-            appearance.indicator.color = .white
+          //  appearance.indicator.color = .white
             appearance.indicator.lineWeight = .thick
-            
         case .scrollingButtonBar:
-            appearance.state.color = UIColor.white.withAlphaComponent(0.6)
-            appearance.state.selectedColor = UIColor.white
-            appearance.indicator.color = UIColor.white
+            //appearance.state.color = UIColor.white.withAlphaComponent(0.6)
+           // appearance.state.selectedColor = UIColor.white
+           // appearance.indicator.color = UIColor.white
             appearance.layout.itemVerticalPadding = 16.0
             appearance.indicator.bounces = true
             appearance.indicator.lineWeight = .normal
-            appearance.layout.edgeInset = 16.0
-            appearance.layout.interItemSpacing = 20.0
-
+            appearance.layout.edgeInset = 32.0
+            appearance.layout.interItemSpacing = 40.0
         case .buttonBar:
             appearance.state.color = UIColor.white.withAlphaComponent(0.6)
             appearance.state.selectedColor = UIColor.white
@@ -52,10 +55,6 @@ class PresetAppearanceConfigs: Any {
 
         default:
             appearance.style.background = .blur(style: .light)
-        }
-        
-        if #available(iOS 8.2, *) {
-            appearance.text.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
         }
         
         return appearance

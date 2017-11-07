@@ -17,6 +17,11 @@ class ChildViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .automatic
+        } else {
+            // Fallback on earlier versions
+        }
 
         if let index = self.index {
             self.label.text = "Page " + String(index)
