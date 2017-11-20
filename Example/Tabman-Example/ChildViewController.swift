@@ -18,7 +18,7 @@ class ChildViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
-            navigationItem.largeTitleDisplayMode = .automatic
+            navigationItem.largeTitleDisplayMode = .never
         }
 
         if let index = self.index {
